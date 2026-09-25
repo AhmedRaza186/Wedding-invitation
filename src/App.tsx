@@ -6,7 +6,7 @@ import AudioToggle from './components/AudioToggle';
 
 export default function App() {
   const [hasEntered, setHasEntered] = useState(false);
-  const { isPlaying, toggleMusic, playIntroAndMusic } = useAudio();
+  const { isPlaying, toggleMusic, playIntroChime } = useAudio();
 
   return (
     <>
@@ -15,10 +15,10 @@ export default function App() {
       {!hasEntered && (
         <CeremonialWelcome 
           onEnter={() => setHasEntered(true)} 
-          onPlayAudio={playIntroAndMusic}
+          onPlayAudio={playIntroChime}
         />
       )}
-      {hasEntered && <MainInvitation isPlaying={isPlaying} />}
+      {hasEntered && <MainInvitation />}
     </>
   );
 }

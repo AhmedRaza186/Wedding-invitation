@@ -85,6 +85,38 @@
   z-index: 1;
 }
 
+.printed-card__opening-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.printed-card__transition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 0 35px;
+  color: var(--card-gold);
+  opacity: 0.7;
+}
+
+.printed-card__transition-line {
+  width: 1px;
+  /* Dynamically fill the remaining space to push the date below the fold (approx 480px used by opening content) */
+  height: max(80px, calc(100vh - 480px));
+  background: linear-gradient(to bottom, transparent, currentColor, transparent);
+}
+
+.printed-card__transition-ornament {
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  fill: var(--card-paper);
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
 .printed-card__bismillah {
   color: var(--card-gold);
   font: 400 clamp(21px, 5vw, 31px)/1.8 'Amiri', serif;
@@ -157,7 +189,7 @@
 }
 
 .printed-card__wedding {
-  margin-top: 22px;
+  margin-top: 0;
 }
 
 .printed-card__date-container {
@@ -296,29 +328,53 @@
 }
 
 .printed-card__nikkah {
-  width: fit-content;
-  max-width: 100%;
-  margin: 16px auto 0;
-  border: 1.5px solid var(--card-ink);
-  border-radius: 11px;
-  padding: 7px 12px;
+  width: min(85%, 340px);
+  margin: 70px auto 30px;
+  border-top: 1px solid rgba(201, 166, 95, 0.4);
+  border-bottom: 1px solid rgba(201, 166, 95, 0.4);
+  padding: 30px 12px;
   text-transform: uppercase;
   font-weight: 600;
   line-height: 1.1;
+  color: var(--card-ink);
 }
 
 .printed-card__nikkah h2 {
-  font-size: 1.1em;
+  font-size: 1.5em;
+  color: var(--card-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
 }
 
 .printed-card__nikkah p {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .printed-card__footer {
-  margin-top: 18px;
+  margin-top: 80px;
+  padding-top: 40px;
+  position: relative;
   text-transform: uppercase;
   line-height: 1.12;
+}
+
+.printed-card__footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background-color: var(--card-gold);
+  opacity: 0.6;
+}
+
+.printed-card__footer p:first-child {
+  color: var(--card-gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
 }
 
 .printed-card__footer p {
@@ -373,16 +429,19 @@
   }
 
   .printed-card__couple h1 {
-    font-size: clamp(41px, 12vw, 58px);
+    font-size: clamp(34px, 10.5vw, 50px);
+    padding-inline: 10px;
   }
 
   .printed-card__venue-row {
-    gap: 7px;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .printed-card__qr {
-    flex-basis: 61px;
+    flex-basis: auto;
     font-size: .78em;
+    order: 2;
   }
 
   .printed-card__qr-window {
@@ -407,20 +466,5 @@
 
   .printed-card__date-side {
     min-width: 62px;
-  }
-}
-
-@media (max-width: 370px) {
-  .printed-card {
-    padding-inline: 22px;
-  }
-
-  .printed-card__venue-row {
-    flex-direction: column;
-  }
-
-  .printed-card__qr {
-    order: 2;
-    margin-top: 5px;
   }
 }

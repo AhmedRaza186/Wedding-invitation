@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { MAPS_LINK, CALENDAR_LINK } from '../config/links';
-import Countdown from './Countdown';
 import './ClosingScene.css';
 
-interface Props {
-  isPlaying: boolean;
-}
-
-export default function ClosingScene({ isPlaying }: Props) {
+export default function ClosingScene() {
   const sceneRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -36,9 +31,6 @@ export default function ClosingScene({ isPlaying }: Props) {
     return () => observer.disconnect();
   }, []);
 
-  // Target Date: 10 October 2026, 9:00 PM (Asia/Karachi)
-  // Let's assume standard local parsing for now, or explicit UTC +5 offset.
-  const weddingDate = new Date('2026-10-10T21:00:00+05:00');
 
   return (
     <section ref={sceneRef} className="closing-scene" aria-label="Plan your visit">
@@ -114,10 +106,7 @@ export default function ClosingScene({ isPlaying }: Props) {
 
         </div>
         
-        {/* Countdown Section */}
-        <div className="fade-up delay-400">
-          <Countdown targetDate={weddingDate} isPlaying={isPlaying} />
-        </div>
+
       </div>
     </section>
   );

@@ -8,19 +8,13 @@ export function useAudio() {
   // Initialize audio elements ONCE
   useEffect(() => {
     if (!bgmRef.current) {
-      bgmRef.current = new Audio();
-    }
-    if (!bgmRef.current.src || bgmRef.current.src === '' || bgmRef.current.src === window.location.href) {
-      bgmRef.current.src = '/audio/bgm-soothing.mp3';
+      bgmRef.current = new Audio('/audio/bgm-soothing.mp3');
       bgmRef.current.loop = true;
       bgmRef.current.volume = 0; // Start at 0 for fade-in
     }
 
     if (!chimeRef.current) {
-      chimeRef.current = new Audio();
-    }
-    if (!chimeRef.current.src || chimeRef.current.src === '' || chimeRef.current.src === window.location.href) {
-      chimeRef.current.src = '/audio/chime.wav';
+      chimeRef.current = new Audio('/audio/chime.wav');
       chimeRef.current.volume = 0.5;
     }
 
@@ -69,39 +63,16 @@ export function useAudio() {
     }
   }, [isPlaying]);
 
-  const playIntroAndMusic = useCallback(() => {
+  const playIntroChime = useCallback(() => {
     if (chimeRef.current) {
       chimeRef.current.currentTime = 0;
       chimeRef.current.play().catch(console.warn);
-    }
-    
-    if (bgmRef.current) {
-      bgmRef.current.volume = 0;
-      bgmRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          // Fade in over 2 seconds
-          let vol = 0;
-          const fadeInterval = setInterval(() => {
-            vol += 0.05;
-            if (vol >= 0.3) {
-              if (bgmRef.current) bgmRef.current.volume = 0.3;
-              clearInterval(fadeInterval);
-            } else {
-              if (bgmRef.current) bgmRef.current.volume = vol;
-            }
-          }, 333); // 6 steps * 333ms ≈ 2 seconds
-        })
-        .catch((err) => {
-          console.warn('BGM playback prevented', err);
-          setIsPlaying(false);
-        });
     }
   }, []);
 
   return {
     isPlaying,
     toggleMusic,
-    playIntroAndMusic
+    playIntroChime
   };
 }

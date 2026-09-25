@@ -16,22 +16,32 @@ export default function PrintedWeddingCard() {
       <img src={cornerRoses} alt="" className="printed-card__floral printed-card__floral--bottom-right" aria-hidden="true" />
 
       <div className="printed-card__content">
-        <p className="printed-card__bismillah" lang="ar" dir="rtl">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+        <div className="printed-card__opening-view">
+          <p className="printed-card__bismillah" lang="ar" dir="rtl">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
 
-        <header className="printed-card__introduction">
-          <p>The family members of</p>
-          <p className="printed-card__emphasis">Mr. Muhammad Ishaq Lobaniya (Late)</p>
-          <p>request the honour of your presence at the</p>
-          <h2>Wedding Ceremony</h2>
-          <p>of their beloved grand daughter</p>
-        </header>
+          <header className="printed-card__introduction">
+            <p>The family members of</p>
+            <p className="printed-card__emphasis">Mr. Muhammad Ishaq Lobaniya (Late)</p>
+            <p>request the honour of your presence at the</p>
+            <h2>Wedding Ceremony</h2>
+            <p>of their beloved grand daughter</p>
+          </header>
 
-        <div className="printed-card__couple">
-          <h1>Marium</h1>
-          <p>D/O Mr. &amp; Mrs. Muhammad Shahid Lobaniya</p>
-          <span className="printed-card__with">with</span>
-          <h1>Muhammad Ibrahim</h1>
-          <p>S/O Mr. &amp; Mrs. Muhammad Shakeel Ismail Karachi Wala</p>
+          <div className="printed-card__couple">
+            <h1>Marium</h1>
+            <p>D/O Mr. &amp; Mrs. Muhammad Shahid Lobaniya</p>
+            <span className="printed-card__with">with</span>
+            <h1>Muhammad Ibrahim</h1>
+            <p>S/O Mr. &amp; Mrs. Muhammad Shakeel Ismail Karachi Wala</p>
+          </div>
+        </div>
+
+        {/* Elegant Transition to push the date below fold on tall screens */}
+        <div className="printed-card__transition" aria-hidden="true">
+          <div className="printed-card__transition-line"></div>
+          <svg className="printed-card__transition-ornament" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15 12L12 22L9 12L12 2Z" />
+          </svg>
         </div>
 
         <section className="printed-card__wedding" aria-label="Wedding ceremony details">

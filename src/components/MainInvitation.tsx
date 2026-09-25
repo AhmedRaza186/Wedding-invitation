@@ -3,11 +3,7 @@ import gsap from 'gsap';
 import PrintedWeddingCard from './PrintedWeddingCard';
 import ClosingScene from './ClosingScene';
 
-interface Props {
-  isPlaying: boolean;
-}
-
-export default function MainInvitation({ isPlaying }: Props) {
+export default function MainInvitation() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +26,7 @@ export default function MainInvitation({ isPlaying }: Props) {
       className="invitation-page min-h-screen bg-[#f8f4e6] py-8 px-2 overflow-y-auto flex flex-col items-center"
     >
       <PrintedWeddingCard />
-      <ClosingScene isPlaying={isPlaying} />
+      <ClosingScene />
     </main>
   );
 }
