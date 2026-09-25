@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ebd59d" />
+      <stop offset="50%" stop-color="#c9a65f" />
+      <stop offset="100%" stop-color="#a6833b" />
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Thin outer ring -->
+  <circle cx="50" cy="50" r="48" fill="#fdfbf7" stroke="url(#gold-grad)" stroke-width="1.5" />
+  
+  <!-- Decorative Side Lines matching the original image -->
+  <path d="M-10,40 L15,48 M-10,50 L10,53 M-10,60 L20,55" fill="none" stroke="url(#gold-grad)" stroke-width="0.8" opacity="0.6"/>
+  <path d="M110,40 L85,48 M110,50 L90,53 M110,60 L80,55" fill="none" stroke="url(#gold-grad)" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- M -->
+  <text 
+    x="38" 
+    y="55" 
+    font-family="'Great Vibes', cursive" 
+    font-size="44" 
+    fill="url(#gold-grad)" 
+    text-anchor="middle"
+  >M</text>
+
+  <!-- I -->
+  <text 
+    x="62" 
+    y="68" 
+    font-family="'Great Vibes', cursive" 
+    font-size="44" 
+    fill="url(#gold-grad)" 
+    text-anchor="middle"
+  >I</text>
+</svg>

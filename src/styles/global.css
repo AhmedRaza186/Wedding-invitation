@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory-bg: #f8f4e6;
+  --color-ivory-paper: #fdfbf7;
+  --color-gold-light: #d4af37;
+  --color-gold-antique: #aa8529;
+  --color-gold-dark: #8c6a1c;
+  --color-ink-dark: #1a1814;
+  --color-ink-muted: #3a352a;
+
+  @keyframes swing {
+
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+}
+
+body {
+  background-color: var(--color-ivory-bg);
+  color: var(--color-ink-dark);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper Texture overlay to give a warm, subtle grain */
+.texture-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* The perspective champagne path */
+.perspective-path {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(to top, rgba(200, 170, 110, 0.2) 0%, rgba(200, 170, 110, 0) 100%);
+}

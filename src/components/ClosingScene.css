@@ -1,0 +1,213 @@
+.closing-scene {
+  width: 100%;
+  padding: 80px 20px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.closing-scene__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Fade Up Animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fade-up.delay-200 {
+  transition-delay: 200ms;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header Message */
+.closing-scene__header {
+  margin-bottom: 40px;
+}
+
+.closing-scene__message {
+  font-size: clamp(20px, 4vw, 26px);
+  color: var(--card-ink, #27221d);
+  line-height: 1.4;
+  margin: 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Inserts Grid */
+.plan-inserts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .plan-inserts {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* Individual Insert */
+.plan-insert {
+  background: var(--card-paper, #fdfbf7);
+  border: 1px solid rgba(201, 166, 95, 0.3);
+  padding: 35px 30px;
+  box-shadow: 0 4px 20px rgba(39, 34, 29, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle corner accents using border */
+.plan-insert::before,
+.plan-insert::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--card-gold, #c9a65f);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.plan-insert::before {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.plan-insert::after {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+.plan-insert__title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--card-gold, #c9a65f);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 25px 0;
+}
+
+/* Mini Calendar */
+.mini-calendar {
+  width: 100%;
+  max-width: 260px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--card-ink, #27221d);
+  margin-bottom: 25px;
+}
+
+.mini-calendar__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+.mini-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.mini-calendar__grid span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.mini-calendar__grid .mini-calendar__highlight {
+  background: var(--card-gold, #c9a65f);
+  color: #fff;
+  font-weight: 700;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(201, 166, 95, 0.4);
+}
+
+.plan-insert__schedule {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--card-ink, #27221d);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 25px 0;
+  opacity: 0.85;
+}
+
+.plan-insert__schedule .dot {
+  color: var(--card-gold, #c9a65f);
+  margin: 0 6px;
+}
+
+/* Map Wrapper */
+.plan-insert__map-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 25px;
+  border: 1px solid rgba(39, 34, 29, 0.1);
+  background: #eaeaea;
+  /* placeholder color while loading */
+}
+
+/* Action Buttons */
+.plan-insert__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-size: 0.8em;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--card-ink, #27221d);
+  background: transparent;
+  border: 1.5px solid rgba(39, 34, 29, 0.3);
+  border-radius: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  /* push to bottom */
+}
+
+.plan-insert__btn svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.plan-insert__btn:hover,
+.plan-insert__btn:focus-visible {
+  border-color: var(--card-gold, #c9a65f);
+  color: var(--card-gold, #c9a65f);
+  background: rgba(201, 166, 95, 0.05);
+}

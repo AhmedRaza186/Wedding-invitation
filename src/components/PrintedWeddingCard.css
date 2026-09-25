@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+.printed-card {
+  --card-ink: #27221d;
+  --card-gold: #c9a65f;
+  /* Updated to lighter, more elegant gold from Valima image */
+  --card-paper: #fdf5e8;
+  /* Updated to warm beige color */
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: min(100%, 650px);
+  margin-inline: auto;
+  padding: clamp(43px, 8vw, 75px) clamp(22px, 6.5vw, 56px) 130px;
+  overflow: hidden;
+  background: var(--card-paper);
+  color: var(--card-ink);
+  text-align: center;
+  box-shadow: 0 22px 70px rgba(76, 53, 24, .13);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(14px, 2.3vw, 17px);
+  line-height: 1.13;
+}
+
+.printed-card *,
+.printed-card *::before,
+.printed-card *::after {
+  box-sizing: border-box;
+}
+
+.printed-card p,
+.printed-card h1,
+.printed-card h2 {
+  margin: 0;
+}
+
+.printed-card__outline {
+  position: absolute;
+  z-index: -1;
+  inset: 24px 26px 30px;
+  border: 4px solid var(--card-gold);
+  border-top-right-radius: 150px;
+  border-bottom-left-radius: 150px;
+  clip-path: polygon(27% 0, 100% 0, 100% 76%, 94% 76%, 94% 100%, 0 100%, 0 14%, 7% 14%, 7% 0);
+  opacity: .96;
+}
+
+.printed-card__floral {
+  position: absolute;
+  z-index: 2;
+  width: clamp(220px, 55%, 380px);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+  -webkit-mask-image: radial-gradient(circle at top left, black 50%, transparent 80%);
+  mask-image: radial-gradient(circle at top left, black 50%, transparent 80%);
+}
+
+.printed-card__floral--top-left {
+  top: -40px;
+  left: -40px;
+  transform: rotate(0deg);
+}
+
+.printed-card__floral--top-right {
+  top: -40px;
+  right: -40px;
+  transform: scaleX(-1) rotate(0deg);
+}
+
+.printed-card__floral--bottom-left {
+  bottom: -40px;
+  left: -40px;
+  transform: scaleY(-1) rotate(0deg);
+}
+
+.printed-card__floral--bottom-right {
+  bottom: -40px;
+  right: -40px;
+  transform: scale(-1, -1) rotate(0deg);
+}
+
+.printed-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.printed-card__bismillah {
+  color: var(--card-gold);
+  font: 400 clamp(21px, 5vw, 31px)/1.8 'Amiri', serif;
+  margin-bottom: 5px !important;
+}
+
+.printed-card__introduction {
+  text-transform: uppercase;
+  letter-spacing: .035em;
+}
+
+.printed-card__introduction p {
+  margin-bottom: 4px;
+}
+
+.printed-card__emphasis {
+  font-weight: 700;
+  font-size: 1.12em;
+}
+
+.printed-card__introduction h2 {
+  color: var(--card-gold);
+  font-size: 1.24em;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin: 8px 0 5px;
+}
+
+.printed-card__couple {
+  margin-top: 22px;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+}
+
+.printed-card__couple h1 {
+  color: var(--card-gold);
+  font: 400 clamp(46px, 10vw, 69px)/1.15 'Great Vibes', 'Brush Script MT', cursive;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 3px 0 1px;
+
+  /* Glitter animation */
+  background: linear-gradient(110deg,
+      var(--card-gold) 20%,
+      #d1a361 40%,
+      #ffebb3 50%,
+      #d1a361 60%,
+      var(--card-gold) 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glitter-shimmer 4s linear infinite;
+}
+
+@keyframes glitter-shimmer {
+  to {
+    background-position: -200% center;
+  }
+}
+
+.printed-card__couple p {
+  font-size: .94em;
+}
+
+.printed-card__with {
+  display: block;
+  margin: 12px 0 -2px;
+  font-weight: 700;
+}
+
+.printed-card__wedding {
+  margin-top: 22px;
+}
+
+.printed-card__date-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.printed-card__date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.printed-card__date-side {
+  min-width: 78px;
+  border-top: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  padding: 3px 0;
+}
+
+.printed-card__date-center {
+  display: grid;
+  place-items: center;
+  line-height: .9;
+}
+
+.printed-card__date-center span {
+  font-size: .9em;
+}
+
+.printed-card__date-center strong {
+  font-size: clamp(40px, 8vw, 55px);
+  line-height: .88;
+  font-weight: 500;
+}
+
+.printed-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 5px 12px;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: var(--card-ink);
+  background: transparent;
+  border: 1px solid rgba(39, 34, 29, 0.3);
+  border-radius: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.2s ease;
+}
+
+.printed-card__action svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+}
+
+.printed-card__action:hover,
+.printed-card__action:focus-visible {
+  border-color: var(--card-gold);
+  color: var(--card-gold);
+  background: rgba(201, 166, 95, 0.05);
+}
+
+.printed-card__venue-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.printed-card__venue-copy {
+  text-transform: uppercase;
+  letter-spacing: .015em;
+}
+
+.printed-card__venue-copy>p {
+  margin: 5px 0;
+}
+
+.printed-card__venue-title {
+  color: var(--card-gold);
+  font-size: 1.65em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.printed-card__venue-title span {
+  color: var(--card-ink);
+  font-size: .65em;
+}
+
+.printed-card__schedule {
+  white-space: nowrap;
+  font-size: .93em;
+}
+
+.printed-card__schedule span {
+  padding-inline: 5px;
+}
+
+.printed-card__qr {
+  flex: 0 0 84px;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  text-transform: uppercase;
+  font-size: .85em;
+  font-weight: 600;
+}
+
+.printed-card__qr-window {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background: white;
+}
+
+/* Pixel-exact QR from the client's 1600 x 1071 printed card. No guessed URL. */
+.printed-card__qr-window img {
+  position: absolute;
+  max-width: none;
+  width: 1600px;
+  height: 1071px;
+  top: -626px;
+  left: -84px;
+}
+
+.printed-card__nikkah {
+  width: fit-content;
+  max-width: 100%;
+  margin: 16px auto 0;
+  border: 1.5px solid var(--card-ink);
+  border-radius: 11px;
+  padding: 7px 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.printed-card__nikkah h2 {
+  font-size: 1.1em;
+}
+
+.printed-card__nikkah p {
+  margin-top: 4px;
+}
+
+.printed-card__footer {
+  margin-top: 18px;
+  text-transform: uppercase;
+  line-height: 1.12;
+}
+
+.printed-card__footer p {
+  margin-top: 3px;
+}
+
+.printed-card__footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.printed-card__footer a:hover,
+.printed-card__footer a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .printed-card {
+    padding: 64px 29px 110px;
+    font-size: clamp(12px, 3vw, 15px);
+  }
+
+  .printed-card__outline {
+    inset: 20px 14px 21px;
+    border-width: 3px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+  }
+
+  .printed-card__floral--top-left {
+    top: -10px;
+    left: -10px;
+    width: clamp(140px, 40%, 200px);
+  }
+
+  .printed-card__floral--top-right {
+    top: -10px;
+    right: -10px;
+    width: clamp(140px, 40%, 200px);
+  }
+
+  .printed-card__floral--bottom-left {
+    bottom: -10px;
+    left: -10px;
+    width: clamp(140px, 40%, 200px);
+  }
+
+  .printed-card__floral--bottom-right {
+    bottom: -10px;
+    right: -10px;
+    width: clamp(140px, 40%, 200px);
+  }
+
+  .printed-card__couple h1 {
+    font-size: clamp(41px, 12vw, 58px);
+  }
+
+  .printed-card__venue-row {
+    gap: 7px;
+  }
+
+  .printed-card__qr {
+    flex-basis: 61px;
+    font-size: .78em;
+  }
+
+  .printed-card__qr-window {
+    width: 60px;
+    height: 60px;
+  }
+
+  .printed-card__qr-window img {
+    width: 1200px;
+    height: 803.25px;
+    top: -469.5px;
+    left: -63px;
+  }
+
+  .printed-card__venue-title {
+    font-size: clamp(18px, 5.4vw, 24px);
+  }
+
+  .printed-card__schedule {
+    white-space: normal;
+  }
+
+  .printed-card__date-side {
+    min-width: 62px;
+  }
+}
+
+@media (max-width: 370px) {
+  .printed-card {
+    padding-inline: 22px;
+  }
+
+  .printed-card__venue-row {
+    flex-direction: column;
+  }
+
+  .printed-card__qr {
+    order: 2;
+    margin-top: 5px;
+  }
+}
