@@ -70,9 +70,30 @@ export function useAudio() {
     }
   }, []);
 
+  // Start BGM from a user gesture (Tap to Enter / Skip) and fade it in
+  const startMusic = useCallback(() => {
+    const bgm = bgmRef.current;
+    if (!bgm || !bgm.paused) return;
+
+    bgm.volume = 0;
+    bgm.play()
+      .then(() => {
+        setIsPlaying(true);
+        const fade = window.setInterval(() => {
+          bgm.volume = Math.min(0.3, bgm.volume + 0.02);
+          if (bgm.volume >= 0.3) window.clearInterval(fade);
+        }, 120);
+      })
+      .catch((err) => {
+        console.warn('Audio playback prevented', err);
+        setIsPlaying(false);
+      });
+  }, []);
+
   return {
     isPlaying,
     toggleMusic,
-    playIntroChime
+    playIntroChime,
+    startMusic
   };
 }

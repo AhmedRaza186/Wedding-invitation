@@ -3,12 +3,12 @@ export const Monogram = ({ className }: { className?: string }) => (
     <defs>
       <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="var(--color-gold-light)" />
-        <stop offset="50%" stopColor="var(--color-gold-antique)" />
+        <stop offset="50%" stopColor="var(--color-gold)" />
         <stop offset="100%" stopColor="var(--color-gold-dark)" />
       </linearGradient>
     </defs>
     {/* Thin outer ring */}
-    <circle cx="50" cy="50" r="48" fill="var(--color-ivory-paper)" stroke="url(#gold-grad)" strokeWidth="1" />
+    <circle cx="50" cy="50" r="48" fill="var(--color-cocoa-900)" stroke="url(#gold-grad)" strokeWidth="1" />
     
     {/* Decorative Side Lines matching the original image */}
     <path d="M-10,40 L15,48 M-10,50 L10,53 M-10,60 L20,55" fill="none" stroke="url(#gold-grad)" strokeWidth="0.8" opacity="0.6"/>
