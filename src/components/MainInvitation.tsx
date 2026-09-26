@@ -199,6 +199,10 @@ export default function MainInvitation() {
           <a href="tel:+923331308802">0333-1308802</a>
         </div>
         <p className="closing__dua">We look forward to celebrating with you.</p>
+        <p className="credit">
+          Made by{' '}
+          <a href="https://ahmed-razas-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Ahmed Raza</a>
+        </p>
       </footer>
     </main>
   );
