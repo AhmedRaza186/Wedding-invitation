@@ -5,9 +5,10 @@ import { Monogram, Arch, Botanicals } from '../assets/artwork';
 interface Props {
   onEnter: () => void;
   onPlayAudio: () => void;
+  onSkip: () => void;
 }
 
-export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
+export default function CeremonialWelcome({ onEnter, onPlayAudio, onSkip }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const archRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<HTMLDivElement>(null);
@@ -83,7 +84,7 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
   };
 
   return (
-    <div ref={containerRef} className="fixed inset-0 bg-ivory-bg flex flex-col items-center justify-center overflow-hidden z-40">
+    <div ref={containerRef} className="fixed inset-0 welcome-glow flex flex-col items-center justify-center overflow-hidden z-40">
       
       {/* Desktop Botanicals (Middle ground) */}
       <div ref={botanicalsRef} className="hidden lg:flex absolute inset-0 justify-between items-center w-full h-full pointer-events-none z-10 opacity-70">
@@ -94,8 +95,8 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
       {/* Skip Intro */}
       <div className="absolute top-6 right-8 lg:right-12 z-50">
         <button 
-          onClick={onEnter}
-          className="text-gold-antique text-[10px] tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity font-serif font-medium"
+          onClick={() => { onSkip(); onEnter(); }}
+          className="text-gold text-[10px] tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity font-serif font-medium"
         >
           Skip Intro
         </button>
@@ -113,14 +114,14 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
         className="absolute top-[-5vh] z-30 flex flex-col items-center pointer-events-none origin-top animate-[swing_6s_ease-in-out_infinite]"
       >
         {/* Hanging String */}
-        <div className="w-[1.5px] h-[25vh] bg-gradient-to-b from-transparent via-[#b7955b] to-[#8c6b36] opacity-80"></div>
+        <div className="w-[1.5px] h-[25vh] bg-gradient-to-b from-transparent via-gold to-gold-dark opacity-80"></div>
         {/* Monogram */}
         <Monogram className="w-[85px] h-[85px] -mt-2" />
       </div>
 
       {/* Center Content (Title) */}
       <div ref={contentRef} className="absolute top-[35vh] flex flex-col items-center pointer-events-none z-20">
-        <h2 className="text-gold-antique font-serif text-[14px] leading-relaxed tracking-[0.25em] uppercase text-center opacity-90 font-medium">
+        <h2 className="text-gold font-serif text-[14px] leading-relaxed tracking-[0.25em] uppercase text-center opacity-90 font-medium">
           Awaiting Your<br/>Presence
         </h2>
       </div>
@@ -136,7 +137,7 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
           src="/male_host.png" 
           alt="" 
           className="w-auto h-[28vh] md:h-[35vh] max-h-[300px] md:max-h-[400px] max-w-[35vw] md:max-w-[30vw] object-contain object-bottom origin-bottom"
-          style={{ filter: 'drop-shadow(0 8px 15px rgba(0,0,0,0.15))' }}
+          style={{ filter: 'drop-shadow(0 8px 15px rgba(0,0,0,0.45))' }}
         />
       </div>
       <div ref={femaleRef} className="absolute bottom-0 right-[2vw] md:right-[10vw] lg:right-[18vw] z-40 pointer-events-none flex justify-end items-end will-change-transform">
@@ -144,7 +145,7 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
           src="/female_host.png" 
           alt="" 
           className="w-auto h-[28vh] md:h-[35vh] max-h-[300px] md:max-h-[400px] max-w-[45vw] md:max-w-[35vw] object-contain object-bottom origin-bottom"
-          style={{ filter: 'drop-shadow(0 8px 15px rgba(0,0,0,0.15))' }}
+          style={{ filter: 'drop-shadow(0 8px 15px rgba(0,0,0,0.45))' }}
         />
       </div>
 
@@ -152,7 +153,7 @@ export default function CeremonialWelcome({ onEnter, onPlayAudio }: Props) {
       <button 
         ref={enterBtnRef}
         onClick={handleEnter}
-        className="absolute bottom-[8vh] px-10 py-[14px] text-gold-antique border border-gold-antique/50 rounded-full uppercase tracking-[0.2em] text-[11px] bg-ivory-paper/80 backdrop-blur-md shadow-[0_4px_25px_rgba(170,133,41,0.15)] hover:bg-ivory-paper hover:border-gold-antique/80 transition-all duration-300 z-50 font-serif font-medium"
+        className="absolute bottom-[8vh] px-10 py-[14px] text-gold border border-gold/60 rounded-full uppercase tracking-[0.2em] text-[11px] bg-cocoa-900/70 backdrop-blur-md shadow-[0_4px_25px_rgba(236,208,143,0.18)] hover:bg-cocoa-800 hover:border-gold-light transition-all duration-300 z-50 font-serif font-medium"
       >
         Tap to Enter
       </button>

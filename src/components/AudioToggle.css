@@ -5,15 +5,15 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-ivory-paper);
-  border: 1px solid var(--color-gold-antique);
-  color: var(--color-gold-antique);
+  background: var(--color-cocoa-800);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(39, 34, 29, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0;
   outline: none;
@@ -21,8 +21,8 @@
 
 .audio-toggle:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(39, 34, 29, 0.12);
-  background: #fcf9f2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  background: var(--color-cocoa-700);
 }
 
 .audio-toggle:active {
