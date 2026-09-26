@@ -95,10 +95,18 @@ export default function MainInvitation() {
           <p className="couple__parents step" style={{ '--i': 24 } as React.CSSProperties}>S/O Mr. &amp; Mrs. Muhammad Shakeel Ismail Karachi Wala</p>
         </div>
 
-        <div className="scroll-cue step" style={{ '--i': 27 } as React.CSSProperties} aria-hidden="true">
-          <span>Scroll</span>
-          <i />
-        </div>
+        <button
+          type="button"
+          className="scroll-cue step"
+          style={{ '--i': 27 } as React.CSSProperties}
+          onClick={(e) => e.currentTarget.closest('section')?.nextElementSibling?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+        >
+          <span>Scroll Down</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+            <path d="M6 4l6 6 6-6" opacity="0.5" />
+          </svg>
+        </button>
       </section>
 
       {/* 2 — Date (single scratch) */}
