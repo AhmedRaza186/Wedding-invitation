@@ -716,6 +716,28 @@
   color: rgba(245, 233, 214, 0.55);
 }
 
+.credit {
+  margin-top: 44px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 233, 214, 0.38);
+}
+
+.credit a {
+  color: rgba(201, 164, 92, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 164, 92, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.credit a:hover {
+  color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
