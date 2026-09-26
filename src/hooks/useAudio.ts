@@ -8,7 +8,7 @@ export function useAudio() {
   // Initialize audio elements ONCE
   useEffect(() => {
     if (!bgmRef.current) {
-      bgmRef.current = new Audio('/audio/bgm-soothing.mp3');
+      bgmRef.current = new Audio('/audio/bgm-arabic-romance.mp3');
       bgmRef.current.loop = true;
       bgmRef.current.volume = 0; // Start at 0 for fade-in
     }
